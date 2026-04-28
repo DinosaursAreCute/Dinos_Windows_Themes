@@ -38,11 +38,28 @@ jobs:
           cd installer
           pyinstaller build.spec --noconfirm
 
+      - name: Compute artifact filename
+        id: meta
+        shell: pwsh
+        run: |
+          $version = (Select-String -Path installer/main.py -Pattern 'VERSION\s*=\s*"([^"]+)"').Matches[0].Groups[1].Value
+          $version = $version.TrimStart('v')
+          $date = Get-Date -Format "yyyyMMdd"
+          $filename = "DinoThemesInstaller-v$version-$date.exe"
+          "version=v$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+          "date=$date" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+          "filename=$filename" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+
+      - name: Rename EXE with version and date
+        shell: pwsh
+        run: |
+          Move-Item -Path installer/dist/DinoThemesInstaller.exe -Destination "installer/dist/${{ steps.meta.outputs.filename }}" -Force
+
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: DinoThemesInstaller-${{ github.sha }}
-          path: installer/dist/DinoThemesInstaller.exe
+          name: ${{ steps.meta.outputs.filename }}
+          path: installer/dist/${{ steps.meta.outputs.filename }}
           if-no-files-found: error
 
       # ── Release (tag pushes only) ──────────────────────────────────────────────
@@ -50,11 +67,11 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          name: "Dino Themes ${{ github.ref_name }}"
+          name: "Dino Themes ${{ steps.meta.outputs.version }}"
           body: |
-            ## Dino Themes ${{ github.ref_name }}
+            ## Dino Themes ${{ steps.meta.outputs.version }}
 
-            Download `DinoThemesInstaller.exe` below and run it to install the theme.
+            Download `${{ steps.meta.outputs.filename }}` below and run it to install the theme.
 
             **Prerequisites** (the installer will check these):
             - [PowerToys](https://github.com/microsoft/PowerToys)
@@ -64,7 +81,7 @@ jobs:
             - [TranslucentTB](https://github.com/TranslucentTB/TranslucentTB)
             - [Rainmeter](https://www.rainmeter.net)
             - [AutoHotkey v2](https://www.autohotkey.com)
-          files: installer/dist/DinoThemesInstaller.exe
+          files: installer/dist/${{ steps.meta.outputs.filename }}
           draft: false
           prerelease: false
         env:

@@ -1,4 +1,17 @@
-# Dinos Windows Themes
+<table>
+  <tr>
+    <td><h1>Dinos Windows Themes</h1></td>
+    <td align="right"><img src="installer/assets/dino_themes.png" alt="Dino Themes logo" width="140" /></td>
+  </tr>
+</table>
+
+<p align="left">
+  <a href="https://github.com/DinosaursAreCute/Dinos_Windows_Themes/releases/latest"><img src="https://img.shields.io/github/v/release/DinosaursAreCute/Dinos_Windows_Themes?display_name=tag&sort=semver&label=Latest%20Release" alt="Latest release" /></a>
+  <a href="https://github.com/DinosaursAreCute/Dinos_Windows_Themes/releases"><img src="https://img.shields.io/github/release-date/DinosaursAreCute/Dinos_Windows_Themes?label=Last%20Release" alt="Last release date" /></a>
+  <a href="https://github.com/DinosaursAreCute/Dinos_Windows_Themes/actions/workflows/build.yml"><img src="https://img.shields.io/github/actions/workflow/status/DinosaursAreCute/Dinos_Windows_Themes/build.yml?branch=main&label=Build%20Installer" alt="Build installer status" /></a>
+  <a href="https://github.com/DinosaursAreCute/Dinos_Windows_Themes/releases"><img src="https://img.shields.io/github/downloads/DinosaursAreCute/Dinos_Windows_Themes/total?label=Downloads" alt="Total downloads" /></a>
+</p>
+
 Is windows to serious of a joke to you? Do you want to make it look like a cute and colorful desktop environment that would satisfy even the most hardcore linux ricer? Then this is the theme pack for you! With a combination of Rainmeter skins, ExplorerPatcher profiles, PowerToys settings and AutoHotkey scripts, this theme pack will transform your windows experience into *something*... 
 
 ## 🦕 Showcase

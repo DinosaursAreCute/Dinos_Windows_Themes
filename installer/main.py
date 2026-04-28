@@ -44,7 +44,7 @@ def resource_path(rel: str) -> str:
 
 
 def load_logo(size: int = 64) -> ctk.CTkImage | None:
-    for cand in (resource_path("assets/logo.png"), resource_path("assets/logo.ico")):
+    for cand in (resource_path("assets/dino_themes.png"), resource_path("assets/logo.png"), resource_path("assets/logo.ico")):
         try:
             img = Image.open(cand).convert("RGBA")
             return ctk.CTkImage(img, size=(size, size))
@@ -180,8 +180,11 @@ class DinoInstaller(ctk.CTk):
 
     def _build_setup_page(self) -> None:
         p = self._setup_frame
+        setup_scroll = ctk.CTkScrollableFrame(p, fg_color="transparent", corner_radius=0)
+        setup_scroll.pack(fill="both", expand=True)
+        content = setup_scroll
 
-        hrow = ctk.CTkFrame(p, fg_color="transparent")
+        hrow = ctk.CTkFrame(content, fg_color="transparent")
         hrow.pack(fill="x")
         ctk.CTkLabel(hrow, text="Prerequisites", font=FONT_BOLD, text_color=TEXT).pack(side="left")
         self._summary_lbl = ctk.CTkLabel(hrow, text="", font=FONT_SMALL, text_color=TEXT_DIM)
@@ -202,14 +205,14 @@ class DinoInstaller(ctk.CTk):
         )
         self._refresh_btn.pack(side="right")
 
-        card = ctk.CTkFrame(p, fg_color=PANEL, corner_radius=10, border_width=1, border_color=BORDER)
+        card = ctk.CTkFrame(content, fg_color=PANEL, corner_radius=10, border_width=1, border_color=BORDER)
         card.pack(fill="x", pady=(8, 0))
         self._prereq_rows: list[dict] = []
         for i, prereq in enumerate(PREREQS):
             self._prereq_rows.append(_make_prereq_row(card, prereq, i, last=(i == len(PREREQS) - 1)))
 
-        ctk.CTkLabel(p, text="Install Source", font=FONT_BOLD, text_color=TEXT).pack(anchor="w", pady=(14, 0))
-        source_card = ctk.CTkFrame(p, fg_color=PANEL, corner_radius=10, border_width=1, border_color=BORDER)
+        ctk.CTkLabel(content, text="Install Source", font=FONT_BOLD, text_color=TEXT).pack(anchor="w", pady=(14, 0))
+        source_card = ctk.CTkFrame(content, fg_color=PANEL, corner_radius=10, border_width=1, border_color=BORDER)
         source_card.pack(fill="x", pady=(6, 0))
 
         ctk.CTkSwitch(
@@ -225,8 +228,8 @@ class DinoInstaller(ctk.CTk):
         self._release_lbl = ctk.CTkLabel(source_card, textvariable=self._release_text, font=FONT_SMALL, text_color=TEXT_DIM)
         self._release_lbl.pack(anchor="w", padx=12, pady=(0, 10))
 
-        ctk.CTkLabel(p, text="Install Options", font=FONT_BOLD, text_color=TEXT).pack(anchor="w", pady=(14, 0))
-        opt_card = ctk.CTkFrame(p, fg_color=PANEL, corner_radius=10, border_width=1, border_color=BORDER)
+        ctk.CTkLabel(content, text="Install Options", font=FONT_BOLD, text_color=TEXT).pack(anchor="w", pady=(14, 0))
+        opt_card = ctk.CTkFrame(content, fg_color=PANEL, corner_radius=10, border_width=1, border_color=BORDER)
         opt_card.pack(fill="x", pady=(6, 0))
 
         self._add_option_switch(opt_card, "Apply theme setup after download", self._opt_apply_theme)
@@ -236,8 +239,8 @@ class DinoInstaller(ctk.CTk):
         self._add_option_switch(opt_card, "Backup current configs (PowerToys/Rainmeter/Files/etc)", self._opt_backup_configs)
         self._add_option_switch(opt_card, "Set Windows accent color to RGB(50,67,50)", self._opt_set_accent)
 
-        ctk.CTkLabel(p, text="Install Location", font=FONT_BOLD, text_color=TEXT).pack(anchor="w", pady=(14, 0))
-        dir_row = ctk.CTkFrame(p, fg_color="transparent")
+        ctk.CTkLabel(content, text="Install Location", font=FONT_BOLD, text_color=TEXT).pack(anchor="w", pady=(14, 0))
+        dir_row = ctk.CTkFrame(content, fg_color="transparent")
         dir_row.pack(fill="x", pady=(6, 0))
         self._dir_entry = ctk.CTkEntry(dir_row, textvariable=self._install_dir, font=FONT_BODY, height=36, corner_radius=6, fg_color=PANEL, border_color=BORDER, text_color=TEXT)
         self._dir_entry.pack(side="left", fill="x", expand=True)

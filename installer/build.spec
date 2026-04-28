@@ -12,8 +12,8 @@ block_cipher = None
 
 # ── Conditional assets ────────────────────────────────────────────────────────────
 datas = []
-if os.path.exists("assets/logo.png"):
-    datas.append(("assets/logo.png", "assets"))
+if os.path.exists("assets/dino_themes.png"):
+    datas.append(("assets/dino_themes.png", "assets"))
 if os.path.exists("assets/icon.ico"):
     datas.append(("assets/icon.ico", "assets"))
 
