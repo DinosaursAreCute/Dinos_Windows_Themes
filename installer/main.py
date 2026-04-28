@@ -421,6 +421,12 @@ class DinoInstaller(ctk.CTk):
         overwrite = False
         dest_path = Path(dest)
         if dest_path.exists():
+            if (dest_path / ".git").exists() and not is_already_installed(dest):
+                self._warning_lbl.configure(
+                    text="Selected folder is an existing git repository. Choose a different install location.",
+                    text_color=RED,
+                )
+                return
             if is_already_installed(dest):
                 if not messagebox.askyesno("Reinstall?", f"Dino Themes is already installed in:\n{dest}\n\nReinstall?", parent=self):
                     return

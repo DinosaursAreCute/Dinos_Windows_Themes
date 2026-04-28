@@ -4,9 +4,11 @@ from __future__ import annotations
 import os
 import json
 import shutil
+import stat
 import subprocess
 import tempfile
 import threading
+import time
 import urllib.request
 import zipfile
 from pathlib import Path
@@ -42,7 +44,13 @@ def clone_repo(
                 f"'{dest}' already exists and is not empty.\n"
                 "Choose a different directory or allow overwrite."
             )
-        shutil.rmtree(dest_path)
+        # Never wipe an existing git working tree unless it was created by this installer.
+        if (dest_path / ".git").exists() and not (dest_path / MARKER_FILE).exists():
+            raise RuntimeError(
+                "Destination appears to be an existing git repository.\n"
+                "Please choose a different install folder (for example: C:\\DinoThemes)."
+            )
+        _safe_remove_tree(dest_path)
 
     dest_path.mkdir(parents=True, exist_ok=True)
 
@@ -183,3 +191,33 @@ def _zip_download(dest: str, cb: ProgressCB | None, cancel: threading.Event | No
 def _report(cb: ProgressCB | None, msg: str, pct: float) -> None:
     if cb:
         cb(msg, pct)
+
+
+def _safe_remove_tree(path: Path) -> None:
+    """Best-effort recursive delete for Windows (readonly files, transient locks)."""
+
+    def _on_rm_error(func, p, exc_info):  # noqa: ANN001
+        try:
+            os.chmod(p, stat.S_IWRITE)
+            func(p)
+        except Exception:
+            # Let outer retry logic handle persistent locks.
+            pass
+
+    last_err: Exception | None = None
+    for _ in range(5):
+        try:
+            shutil.rmtree(path, onerror=_on_rm_error)
+            return
+        except PermissionError as exc:
+            last_err = exc
+            time.sleep(0.3)
+        except OSError as exc:
+            last_err = exc
+            time.sleep(0.3)
+
+    if last_err is not None:
+        raise RuntimeError(
+            f"Could not remove '{path}'. Close any apps using that folder and try again.\n"
+            f"Details: {last_err}"
+        ) from last_err
