@@ -9,12 +9,12 @@ Is windows to serious of a joke to you? Do you want to make it look like a cute 
 
 A beautiful and modern desktop look that would even satisfy linux ricers
 
-<p align="left">
+<p align="center">
   <img src="Screenshots/Desktop.png" width="49%" />
 </p>
 
 Alternative desktop with a more minimal and clean look:
-<p align="left">  
+<p align="center">  
   <img src="Screenshots/DesktopAlternative.png" width="49%" />
 </p>
 
@@ -24,13 +24,14 @@ Alternative desktop with a more minimal and clean look:
 
 Ever though a square taskbar is to boring? THREAT NO LONGER, FOR DINO HAS COME TO BRING YOU THE CURVES YOU DESERVE:
 
-<p align="left">
+<p align="center">
   <img src="Screenshots/StartMenu.png" width="49%" />
 </p>
-<p align="left">
+
+<p align="center">
   <img src="Screenshots/SystemTray.png" width="49%" />
 </p>
-<p align="left">
+<p align="center">
   <img src="Screenshots/PinnedApps.png" width="49%" />
 </p>
 
