@@ -9,12 +9,12 @@ Is windows to serious of a joke to you? Do you want to make it look like a cute 
 
 A beautiful and modern desktop look that would even satisfy linux ricers
 
-<p align="center">
+<p align="left">
   <img src="Screenshots/Desktop.png" width="49%" />
 </p>
 
 Alternative desktop with a more minimal and clean look:
-<p align="center">  
+<p align="left">  
   <img src="Screenshots/DesktopAlternative.png" width="49%" />
 </p>
 
@@ -24,12 +24,13 @@ Alternative desktop with a more minimal and clean look:
 
 Ever though a square taskbar is to boring? THREAT NO LONGER, FOR DINO HAS COME TO BRING YOU THE CURVES YOU DESERVE:
 
-<p align="center">
+<p align="left">
   <img src="Screenshots/StartMenu.png" width="49%" />
-  <img src="Screenshots/Taskbar.png" width="49%" />
 </p>
-<p align="center">
+<p align="left">
   <img src="Screenshots/SystemTray.png" width="49%" />
+</p>
+<p align="left">
   <img src="Screenshots/PinnedApps.png" width="49%" />
 </p>
 
@@ -40,7 +41,7 @@ Ever though a square taskbar is to boring? THREAT NO LONGER, FOR DINO HAS COME T
 Have you ever though "I wish I could see System information at all times and have useful shortcuts right at my fingertips"? WELL NOW YOU CAN WITH THE POWER OF THE POWERTOY DOCK:
 
 <p align="center">
-  <img src="Screenshots/StatusBar.png" width="80%" />
+  <img src="Screenshots/StatusBar.png" width="100%" />
 </p>
 
 ---
@@ -58,10 +59,6 @@ Tired of Microsoft taking away features from the file explorer? Dino has the sol
 ### Workspace Management
 
 Ugh window managment am I right? A bit better with the custom workspace hotkeys with wich you can easily snap windows to 9 different workspaces and switch between them with a single keypress (well technically its two). Press windows+shift+2 and... OH THIS IS KINDA LIKE HYPRLAND!
-
-<p align="center">
-  <img src="Screenshots/WorkspaceControls.png" width="80%" />
-</p>
 
 ---
 
