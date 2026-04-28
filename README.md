@@ -1,7 +1,7 @@
-<table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td><h1>Dinos Windows Themes</h1></td>
-    <td align="right"><img src="installer/assets/dino_themes.png" alt="Dino Themes logo" width="140" /></td>
+    <td width="80%"><h1>Dinos Windows Themes</h1></td>
+    <td width="20%" align="right"><img src="installer/assets/dino_themes.png" alt="Dino Themes logo" width="140" /></td>
   </tr>
 </table>
 
