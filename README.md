@@ -17,7 +17,8 @@ Is windows to serious of a joke to you? Do you want to make it look like a cute 
 > [!WARNING]
 > ## Known Issues
 >
-> ### Installer 
+> ### Installer
+> - Installer Failing if selected save location is not empty 
 > - Applying Accent Color Does not work consistently
 > - Setting Auto Start for Auto Hotkey script does not work consistently
 > - PowerToys not being recognized as installed if installation was set per User
