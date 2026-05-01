@@ -35,6 +35,10 @@ Is windows to serious of a joke to you? Do you want to make it look like a cute 
 > ### Rainmeter
 > - Some elements overlapping taskbar
 > - Wallpaper being wrong when switching workspaces
+>
+> ### FilesApp
+> - Windows Explorer opening when using shortcut for explorer if files app has not yet been started 
+>
   
 ## 🦕 Showcase
 
