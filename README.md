@@ -13,7 +13,7 @@
 </p>
 
 Is windows to serious of a joke to you? Do you want to make it look like a cute and colorful desktop environment that would horrify even the most hardcore linux ricer? Then this is the theme pack for you! With a combination of Rainmeter skins, ExplorerPatcher profiles, PowerToys settings and AutoHotkey scripts, this theme pack will transform your windows experience into *something*... 
-
+---
 > [!WARNING]
 > ## Known Issues
 >
@@ -39,7 +39,7 @@ Is windows to serious of a joke to you? Do you want to make it look like a cute 
 > ### FilesApp
 > - Windows Explorer opening when using shortcut for explorer if files app has not yet been started 
 >
-  
+> ---
 ## 🦕 Showcase
 
 ---
