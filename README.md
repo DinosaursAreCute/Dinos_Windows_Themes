@@ -13,7 +13,25 @@
 </p>
 
 Is windows to serious of a joke to you? Do you want to make it look like a cute and colorful desktop environment that would horrify even the most hardcore linux ricer? Then this is the theme pack for you! With a combination of Rainmeter skins, ExplorerPatcher profiles, PowerToys settings and AutoHotkey scripts, this theme pack will transform your windows experience into *something*... 
+## Known Issues
+### Installer 
+- Applying Accent Color Does not work consistently
+- Setting Auto Start for Auto Hotkey script does not work consistently
+- PowerToys not being recognized as installed if installation was set per User
+- Some Settings Imports do not work
 
+### Rounded TB 
+- Opening an application in full screen breaks roundedTb
+- Some pinned Taskbar items might not be visible
+- Item spacing being inconsistent
+
+### TranslusentTB 
+- Accent Color randomly looking different due to translusenttb restarting / reverting to default settings
+
+### Rainmeter
+- Some elements overlapping taskbar
+- Wallpaper being wrong when switching workspaces
+  
 ## 🦕 Showcase
 
 ---
