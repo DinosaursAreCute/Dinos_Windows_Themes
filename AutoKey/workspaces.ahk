@@ -3,11 +3,11 @@
 
 
 ;
-; Requires: Download VirtualDesktopAccessor.dll and place it next to this script:
+; Requires: VirtualDesktopAccessor.dll to be placed next to this script:
 ;   https://github.com/Ciantic/VirtualDesktopAccessor/releases
 ;
 
-hVDA := DllCall("LoadLibrary", "Str", A_ScriptDir "\dll\VirtualDesktopAccessor.dll", "Ptr")
+hVDA := DllCall("LoadLibrary", "Str", A_ScriptDir "VirtualDesktopAccessor.dll", "Ptr")
 if !hVDA {
     MsgBox "VirtualDesktopAccessor.dll not found.`nPlace it in: " A_ScriptDir, "AutoKey Setup Error", "IconX"
     ExitApp
